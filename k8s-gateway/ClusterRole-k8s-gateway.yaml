@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/instance: k8s-gateway
+    app.kubernetes.io/name: k8s-gateway
+  name: k8s-gateway
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - services
+      - namespaces
+    verbs:
+      - list
+      - watch
+  - apiGroups:
+      - extensions
+      - networking.k8s.io
+    resources:
+      - ingresses
+    verbs:
+      - list
+      - watch
